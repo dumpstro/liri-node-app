@@ -15,7 +15,7 @@ Spotify-this-song takes a song as an argument and returns a list of artists from
 
 Format: $ node liri.js spotify-this-song mac-the-knife
 
-![spotify-this-song](spotify-this-song/png)
+![spotify-this-song](spotify-this-song.png)
 
 Movie-this takes a movie title as an argument and returns movie data from the OMDB api.
 
