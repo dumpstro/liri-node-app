@@ -11,9 +11,9 @@ var command = inputString[2];
 var input4 = inputString[3];
 
 
-function runScript(command, input4) {
+//function runScript(command, input4) {
 
-    if (command === "concert-this") {
+    function concertThis(input4) {
         axios
             .get("https://rest.bandsintown.com/artists/" + input4 + "/events?app_id=codingbootcamp")
             .then(function (response) {
@@ -37,7 +37,7 @@ function runScript(command, input4) {
             });
     };
 
-    if (command === "spotify-this-song") {
+    function spotifyThisSong(input4) {
         if (input4 === undefined) {
             input4 = "The Sign";
         }
@@ -63,7 +63,7 @@ function runScript(command, input4) {
         });
     };
 
-    if (command === "movie-this") {
+    function movieThis(input4) {
         if (input4 === undefined) {
             input4 = "Mr. Nobody"
         }
@@ -83,7 +83,7 @@ function runScript(command, input4) {
         })
     }
 
-    if (command === "do-what-it-says") {
+    function doWhatitSays(command, input4) {
         console.log("Im running")
         fs.readFile("random.txt", "utf8", function (error, data) {
             console.log(data);
@@ -94,10 +94,28 @@ function runScript(command, input4) {
                 command = commands[0];
                 input4 = commands[1];
                 console.log(commands)
-                runScript(command, input4);
+                //runScript(command, input4);
+                if (command === "concert-this") {
+                    concertThis(input4);
+                } else if (command === "spotify-this-song") {
+                    spotifyThisSong(input4);
+                } else if (command === "movie-this") {
+                    movieThis(input4);
+                }
+
             } 
         })
     }
-}
+//}
 
-runScript(command, input4);
+//runScript(command, input4);
+
+if (command === "concert-this") {
+    concertThis(input4);
+} else if (command === "spotify-this-song") {
+    spotifyThisSong(input4);
+} else if (command === "movie-this") {
+    movieThis(input4);
+} else if (command === "do-what-it-says") {
+    doWhatitSays(command, input4)
+}
